@@ -3,7 +3,7 @@ const orderController = require('../controllers/ordersController');
 const authenticate = require('../middleware/authenticate');
 const admin = require('../middleware/admin')
 
-//API CRUD ORDES
+//API CRUD ORDERS
 
 // See all orders
 router.get('/', admin, async (req, res) => {
