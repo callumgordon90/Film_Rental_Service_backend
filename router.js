@@ -1,15 +1,13 @@
-const router = require ("express").Router();
 
-const movieRouter = require ("./views/moviesRouter");
-const seriesRouter = require ("./views/seriesRouter");
-const usersRouter = require ("./views/usersRouter");
-const orderRouter = require ("./views/orderRouter");
-const loginRouter = require ("./views/loginRouter");
+const router = require('express').Router();
 
-router.use("/movies", movieRouter);
-router.use("/series", seriesRouter);
-router.use("/users", usersRouter);
-router.use("/orders", orderRouter);
-router.use("/login", loginRouter);
+
+const UsuarioRouter = require('./views/UsuarioRouter');
+const PeliculasRouter = require('./views/PeliculasRouter');
+const OrdersRouter = require('./views/OrdersRouter');
+
+router.use('/usuarios', UsuarioRouter);
+router.use('/peliculas', PeliculasRouter);
+router.use('/orders', OrdersRouter);
 
 module.exports = router;

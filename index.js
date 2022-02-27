@@ -1,17 +1,28 @@
-const express = require ("express");
-const db = require ("./db");
+const express = require('express');
 const app = express();
-const port = process.env.PORT || 3006;
-const router = require ("./router");
-const cors = require ('cors');
+const cors = require('cors');
+const db = require('./db.js');
 
-//Middleware:
-app.use(cors());
-app.use(express.json());
+const PORT = 3000;
+
+const router = require('./router');
+
+let corsOptions = {//CONFIGURO OPCIONES DE CORS
+    origin: "*",
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    preflightContinue: false,
+    optionsSuccessStatus: 204
+};
+
+//Middleware
+app.use(express.json()); //PUEDO OBTENER JSON DEL BODY
+app.use(cors(corsOptions));  //USO CORS
+
+
 app.use(router);
-db
-.then(() =>{
-    app.listen(port, ()=> console.log (`Server is listening on http://localhost:${port}`));
 
+
+db.then(()=>{
+    app.listen(PORT, ()=> console.log(`Server on port ${PORT}`)); //Conectado a la base de datos
 })
-.catch((err) => console.log (err.message) );
+.catch((err)=> console.log(err.message));   
