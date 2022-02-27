@@ -1,5 +1,5 @@
 const jwt = require ('jsonwebtoken');
-const secret = "this is the json web token secret";
+const secret = "This is the json web token secret";
 
 const admin = (req, res, next) => {
     try {
