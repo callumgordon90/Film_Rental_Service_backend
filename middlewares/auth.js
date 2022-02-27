@@ -5,19 +5,19 @@ module.exports = (req, res, next) => {
 
     console.log(req.headers);
 
-    // Comprobar que existe el token
+    // check that this token exists
     if(!req.headers.authorization) {
-        res.status(401).json({ msg: "Acceso no autorizado" });
+        res.status(401).json({ msg: "Access not permitted" });
     } else {
 
-        // Comrpobar la validez de este token
+        // check the validity of this token
         let token = req.headers.authorization.split(" ")[1];
 
-        // Comprobar la validez de este token
+        // check the validity of this token
         jwt.verify(token, authConfig.secret, (err, decoded) => {
 
             if(err) {
-                res.status(500).json({ msg: "Ha ocurrido un problema al decodificar el token", err });
+                res.status(500).json({ msg: "Error: unable to identify the token", err });
             } else {
                 req.user = decoded;
                 next();

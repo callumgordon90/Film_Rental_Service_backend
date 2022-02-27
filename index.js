@@ -7,7 +7,7 @@ const PORT = 3000;
 
 const router = require('./router');
 
-let corsOptions = {//CONFIGURO OPCIONES DE CORS
+let corsOptions = {//configuring the options for CORS
     origin: "*",
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
     preflightContinue: false,
@@ -15,14 +15,14 @@ let corsOptions = {//CONFIGURO OPCIONES DE CORS
 };
 
 //Middleware
-app.use(express.json()); //PUEDO OBTENER JSON DEL BODY
-app.use(cors(corsOptions));  //USO CORS
+app.use(express.json()); //To be able to obtain the JSON in the body
+app.use(cors(corsOptions));  //Using CORS
 
 
 app.use(router);
 
 
 db.then(()=>{
-    app.listen(PORT, ()=> console.log(`Server on port ${PORT}`)); //Conectado a la base de datos
+    app.listen(PORT, ()=> console.log(`Server on port ${PORT}`)); //Connecting to the database
 })
 .catch((err)=> console.log(err.message));   

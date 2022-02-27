@@ -21,10 +21,10 @@ router.post('/', UsuarioController.registraUsuario);
 //Modificar datos de un Usuario
 router.put('/:id', auth, UsuarioController.updateProfile);
 
-//Borramos a todos los usuarios
+//Delete all of the users
 router.delete('/', auth, UsuarioController.deleteAll);
 
-//Borramos a todos los usuarios
+//Delete all of the users
 router.delete('/:id', auth, UsuarioController.deleteById);
 
 //Login

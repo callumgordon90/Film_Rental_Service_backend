@@ -6,10 +6,10 @@ const jwt = require('jsonwebtoken');
 const UsuarioController = {};
 
 
-//Funciones del controlador
+//Functions of the controller
 
 UsuarioController.traeUsuarios = (req, res) => {
-    //Búsqueda trayendo a todos los usuarios
+    //Search bringing all of the users
     Usuario.findAll()
     .then(data => {
 
@@ -19,7 +19,7 @@ UsuarioController.traeUsuarios = (req, res) => {
 };
 
 UsuarioController.traerUsuarioId = (req, res) => {
-    //Búsqueda buscando una Id
+    //Searching for an ID
     Usuario.findByPk(req.params.id)
     .then(data => {
         res.send(data)
@@ -27,7 +27,7 @@ UsuarioController.traerUsuarioId = (req, res) => {
 };
 
 UsuarioController.traerUsuarioEmail = (req, res) => {
-    //Búsqueda comparando un campo
+    //Search comparing a field
     Usuario.findOne({ where : { email : req.params.email }})
     .then(data => {
         res.send(data)
@@ -36,7 +36,7 @@ UsuarioController.traerUsuarioEmail = (req, res) => {
 
 UsuarioController.registraUsuario = async (req, res) => {
     
-    //Registrando un usuario
+    //Registering a user
     
     try {
 
@@ -47,13 +47,13 @@ UsuarioController.registraUsuario = async (req, res) => {
         let surname = req.body.surname;
         let nickname = req.body.nickname;
         let email = req.body.email;
-        console.log("antes de encriptar",req.body.password);
+        console.log("before encrypting",req.body.password);
         let password = bcrypt.hashSync(req.body.password, Number.parseInt(authConfig.rounds)); 
         
-        console.log("este es el password", password);
-        //Comprobación de errores.....
+        console.log("this is the password", password);
+        //Checking errors.....
         
-        //Guardamos en sequelize el usuario
+        //Saving the user in sequelize
 
         Usuario.create({
             name: name,
@@ -63,7 +63,7 @@ UsuarioController.registraUsuario = async (req, res) => {
             password: password,
             nickname: nickname
         }).then(usuario => {
-            res.send(`${usuario.name}, bienvenida a este infierno`);
+            res.send(`${usuario.name}, Welcome to the MOVIE API!`);
         });
 
     } catch (error) {
@@ -102,7 +102,7 @@ UsuarioController.deleteAll = async (req, res) => {
             truncate : false
         })
         .then(usuariosEliminados => {
-            res.send(`Se han eliminado ${usuariosEliminados} usuarios`);
+            res.send(`${usuariosEliminados} has been eliminated`);
         })
 
     } catch (error) {
@@ -123,7 +123,7 @@ UsuarioController.deleteById = async (req, res) => {
         })
         .then(usuarioEliminado => {
             console.log(usuarioEliminado);
-            res.send(`El usuario con la id ${id} ha sido eliminado`);
+            res.send(`The user with the id ${id} has been deleted`);
         })
 
     } catch (error) {
@@ -143,12 +143,12 @@ UsuarioController.logUsuario = (req, res) => {
     }).then(Usuario => {
 
         if(!Usuario){
-            res.send("Usuario o contraseña inválido");
+            res.send("Invalid username or password");
         }else {
-            //el usuario existe, por lo tanto, vamos a comprobar
-            //si el password es correcto
+            //if the user exists we will check
+            //if the password is correct
 
-            if (bcrypt.compareSync(password, Usuario.password)) { //COMPARA CONTRASEÑA INTRODUCIDA CON CONTRASEÑA GUARDADA, TRAS DESENCRIPTAR
+            if (bcrypt.compareSync(password, Usuario.password)) { //comparing the introduced password with the saved password after decripting
 
                 console.log(Usuario.password);
 
@@ -161,7 +161,7 @@ UsuarioController.logUsuario = (req, res) => {
                     token: token
                 })
             } else {
-                res.status(401).json({ msg: "Usuario o contraseña inválidos" });
+                res.status(401).json({ msg: "Invalid username or password" });
             }
         };
 

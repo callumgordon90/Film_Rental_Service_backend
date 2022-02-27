@@ -3,7 +3,7 @@ const { default: axios } = require("axios");
 const PeliculasController = {};
 
 
-//Funciones del controlador
+//functions of the controller
 
 PeliculasController.traePeliculas = (req, res) => {
 
