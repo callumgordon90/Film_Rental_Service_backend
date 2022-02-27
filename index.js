@@ -1,5 +1,5 @@
 const express = require ("express");
-const db = requre ("./db");
+const db = require ("./db");
 const app = express();
 const port = process.env.PORT || 3006;
 const router = require ("./router");
