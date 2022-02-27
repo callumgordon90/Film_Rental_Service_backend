@@ -1,7 +1,7 @@
 const moment = require("moment");
 const { Op } = require("sequelize");
 const { Order } = require("../models");
-const router = require("../routes/ordersRouters");
+const router = require("../views/ordersRouter");
 
 
 class Pedido {
