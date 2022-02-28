@@ -8,7 +8,7 @@ const PeliculasController = require('../controllers/PeliculasController');
 //CRUD RESTful
 
 //read all of the films
-router.get('/', PeliculasController.traePeliculas);
+router.get('/retrieve', PeliculasController.traePeliculas);
 //http://localhost:3000/peliculas
 
 //Register a new film

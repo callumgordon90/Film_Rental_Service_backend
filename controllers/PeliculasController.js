@@ -7,6 +7,20 @@ const PeliculasController = {};
 
 PeliculasController.traePeliculas = (req, res) => {
 
+    try {
+
+        Pelicula.findAll().then(pelicula => {
+            res.send(pelicula);
+
+            
+        });
+
+    } catch (error) {
+        console.log (error);
+        res.send(error);
+    }
+    
+
 };
 
 PeliculasController.registraPelicula = async (req, res) => {
