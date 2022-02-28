@@ -10,6 +10,22 @@ PeliculasController.traePeliculas = (req, res) => {
 };
 
 PeliculasController.registraPelicula = (req, res) => {
+    try {
+
+
+        let title = req.body.title;
+
+        Pelicula.create({
+            title: title,
+            
+        }).then(pelicula => {
+            res.send(`${pelicula.title}, You have just registered a film!`);
+        });
+
+    } catch (error) {
+        res.send(error);
+    }
+    
 
 };
 
