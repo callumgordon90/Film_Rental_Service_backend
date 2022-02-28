@@ -1,5 +1,5 @@
 const { default: axios } = require("axios");
-
+const {Pelicula} = require("../models/index");
 const PeliculasController = {};
 
 
@@ -9,20 +9,20 @@ PeliculasController.traePeliculas = (req, res) => {
 
 };
 
-PeliculasController.registraPelicula = (req, res) => {
-    try {
+PeliculasController.registraPelicula = async (req, res) => {
 
+    try {
 
         let title = req.body.title;
 
         Pelicula.create({
-            title: title,
-            
+            title: title
         }).then(pelicula => {
-            res.send(`${pelicula.title}, You have just registered a film!`);
+            res.send(`${pelicula.title} has been added to our database`);
         });
 
     } catch (error) {
+        console.log (error);
         res.send(error);
     }
     

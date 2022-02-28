@@ -40,8 +40,6 @@ UsuarioController.registraUsuario = async (req, res) => {
     
     try {
 
-        
-
         let name = req.body.name;
         let age = req.body.age;
         let surname = req.body.surname;
@@ -51,6 +49,7 @@ UsuarioController.registraUsuario = async (req, res) => {
         let password = bcrypt.hashSync(req.body.password, Number.parseInt(authConfig.rounds)); 
         
         console.log("this is the password", password);
+        
         //Checking errors.....
         
         //Saving the user in sequelize

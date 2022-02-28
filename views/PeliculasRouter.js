@@ -12,7 +12,7 @@ router.get('/', PeliculasController.traePeliculas);
 //http://localhost:3000/peliculas
 
 //Register a new film
-router.post('/', PeliculasController.registraPelicula);
+router.post('/register', PeliculasController.registraPelicula);
 //http://localhost:3000/peliculas
 
 //Search for films by title
