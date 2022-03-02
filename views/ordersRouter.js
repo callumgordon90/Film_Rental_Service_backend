@@ -8,3 +8,5 @@ const OrdersController = require('../controllers/OrdersController');
 router.post('/', OrdersController.placeNewOrder);
 
 module.exports = router;
+
+//Finished checking the routers
