@@ -142,23 +142,27 @@ UsuarioController.logUsuario = (req, res) => {
     }).then(Usuario => {
 
         if(!Usuario){
-            res.send("Invalid username or password");
+            res.send("Usuario o contraseña inválido");
         }else {
             //if the user exists we will check
             //if the password is correct
 
             if (bcrypt.compareSync(password, Usuario.password)) { //comparing the introduced password with the saved password after decripting
 
-                console.log(Usuario.password);
+                console.log("usuario aqui", Usuario);
 
                 let token = jwt.sign({ usuario: Usuario }, authConfig.secret, {
                     expiresIn: authConfig.expires
                 });
 
+                console.log("enviado....", token)
+
                 res.json({
                     usuario: Usuario,
                     token: token
                 })
+
+                console.log("enviado, toklen:", token)
             } else {
                 res.status(401).json({ msg: "Invalid username or password" });
             }
