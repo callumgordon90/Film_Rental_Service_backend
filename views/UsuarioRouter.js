@@ -8,7 +8,7 @@ const UsuarioController = require('../controllers/UsuarioController');
 
 //Leer todos los usuarios
 router.get('/', auth,  UsuarioController.traeUsuarios);
-//http://localhost:3000/usuarios
+//http://localhost:3500/usuarios
 
 
 router.get('/email/:email', auth, UsuarioController.traerUsuarioEmail);
@@ -28,7 +28,7 @@ router.delete('/', auth, UsuarioController.deleteAll);
 router.delete('/:id', auth, UsuarioController.deleteById);
 
 //Login
-router.post('/login ', UsuarioController.logUsuario);
+router.post('/login', UsuarioController.logUsuario);
 //https://localhost:3000/usuarios/login
 
 

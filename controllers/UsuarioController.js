@@ -133,7 +133,6 @@ UsuarioController.deleteById = async (req, res) => {
 
 
 UsuarioController.logUsuario = (req, res) => {
-
     let correo = req.body.email;
     let password = req.body.password;
 
