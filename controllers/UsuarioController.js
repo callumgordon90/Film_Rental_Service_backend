@@ -162,7 +162,7 @@ UsuarioController.logUsuario = (req, res) => {
                     token: token
                 })
 
-                console.log("enviado, toklen:", token)
+                console.log("enviado, token:", token)
             } else {
                 res.status(401).json({ msg: "Invalid username or password" });
             }

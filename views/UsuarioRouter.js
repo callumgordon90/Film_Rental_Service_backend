@@ -28,7 +28,7 @@ router.delete('/', auth, UsuarioController.deleteAll);
 router.delete('/:id', auth, UsuarioController.deleteById);
 
 //Login
-router.post('/l ', UsuarioController.logUsuario);
+router.post('/login ', UsuarioController.logUsuario);
 //https://localhost:3000/usuarios/login
 
 
