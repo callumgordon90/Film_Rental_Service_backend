@@ -9,11 +9,11 @@ const PeliculasController = require('../controllers/PeliculasController');
 
 //read all of the films
 router.get('/retrieve', PeliculasController.traePeliculas);
-//http://localhost:3000/peliculas
+//http://localhost:3500/peliculas
 
 //Register a new film
 router.post('/register', PeliculasController.registraPelicula);
-//http://localhost:3000/peliculas
+//http://localhost:3500/peliculas
 
 //Search for films by title
 router.get('/titulo', PeliculasController.peliculasTitulo);

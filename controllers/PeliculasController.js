@@ -28,9 +28,20 @@ PeliculasController.registraPelicula = async (req, res) => {
     try {
 
         let title = req.body.title;
+        let overview = req.body.overview;
+        let price = req.body.price;
+        let image = req.body.image;
+        let date = req.body.date;
+        
 
         Pelicula.create({
-            title: title
+            title: title,
+            overview: overview,
+            price: price,
+            image: image,
+            date: date
+
+
         }).then(pelicula => {
             res.send(`${pelicula.title} has been added to our database`);
         });
