@@ -7,7 +7,7 @@ const UsuarioController = require('../controllers/UsuarioController');
 //CRUD RESTful
 
 //Leer todos los usuarios
-router.get('/', auth,  UsuarioController.traeUsuarios);
+router.get('/bring', auth,  UsuarioController.traeUsuarios);
 //http://localhost:3500/usuarios
 
 
@@ -29,7 +29,7 @@ router.delete('/:id', auth, UsuarioController.deleteById);
 
 //Login
 router.post('/login', UsuarioController.logUsuario);
-//https://localhost:3000/usuarios/login
+//https://localhost:3500/usuarios/login
 
 
 module.exports = router;
