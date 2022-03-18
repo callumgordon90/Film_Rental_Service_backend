@@ -18,6 +18,7 @@ router.post('/register', PeliculasController.registraPelicula);
 //Search for films by title
 router.get('/titulo', PeliculasController.peliculasTitulo);
 
+
 //Search for new releases
 router.get('/novedades', PeliculasController.traeNovedades);
 
