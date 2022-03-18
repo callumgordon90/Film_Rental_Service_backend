@@ -1,20 +1,21 @@
-
+const { Order } = require('../models/index');
 const OrdersController = {};
+
 
 OrdersController.placeNewOrder = (req,res) => {
     let body = req.body;
 
     console.log("this is the body", body)
 
-    OrdersController.create({
+    Order.create({
         price: body.price,
         peliculaId: body.peliculaId,
         usuarioId: body.usuarioId,
         fecha: body.fecha
     })
-    .then(pedido => {
-        if(pedido){
-            res.send(pedido)
+    .then(order => {
+        if(order){
+            res.send(order)
         }else{
             res.send("The creation of an order has failed");
         }
