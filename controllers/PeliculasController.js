@@ -84,4 +84,24 @@ PeliculasController.traeNovedades = async (req, res) => {
     }
 }
 
+PeliculasController.deleteById =(req,res) => {
+    let id = req.params.id;
+
+    try{
+        Pelicula.destroy({
+            where : { id : id},
+            truncate : false
+        })
+      
+        .then(movieDeleted =>{
+            console.log(movieDeleted);
+            res.send(`La pelicula con la id ${id} ha sido eliminada`);
+        })
+    }
+    catch(error){
+        send.error(error);
+    }
+};
+
+
 module.exports = PeliculasController;

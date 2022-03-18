@@ -22,4 +22,9 @@ router.get('/titulo', PeliculasController.peliculasTitulo);
 router.get('/novedades', PeliculasController.traeNovedades);
 
 
+//DELETE A FILM BY ID
+// router.get ()
+//Endpoint para borrar una pelicula
+router.delete("/:id", PeliculasController.deleteById);
+
 module.exports = router;
