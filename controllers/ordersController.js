@@ -2,6 +2,13 @@ const { Order } = require('../models/index');
 const OrdersController = {};
 
 
+
+
+
+
+
+
+
 OrdersController.placeNewOrder = (req,res) => {
     let body = req.body;
 
@@ -25,5 +32,19 @@ OrdersController.placeNewOrder = (req,res) => {
     }))
     
 }
+
+
+OrdersController.traePedidos = (req, res) => {
+
+    try {
+
+        Order.findAll().then(order => {
+            res.send(order);   
+        });
+    } catch (error) {
+        console.log (error);
+        res.send(error);
+    }
+};
 
 module.exports = OrdersController;
