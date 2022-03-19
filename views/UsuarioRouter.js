@@ -7,7 +7,7 @@ const UsuarioController = require('../controllers/UsuarioController');
 //CRUD RESTful
 
 //Leer todos los usuarios
-router.get('/bring', auth,  UsuarioController.traeUsuarios);
+router.get('/retrieve', auth,  UsuarioController.traeUsuarios);
 //http://localhost:3500/usuarios
 
 
