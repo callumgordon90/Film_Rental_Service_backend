@@ -1,4 +1,4 @@
-# Proyecto-4-GeeksHubsAcademy
+# Backend for the Film Rental Service
 Rest Api for a film rental company. Built with nodeJS Express Sequelize and MySQL.
 
 The purpose of this project was to demonstrate an application that would allow a prospective user to create an account with a username and password (which would be encrypted) in order to permit them to access certain information from a database about different films, store their user data with us, and place an order for a film. This actions were simulated with the postman application, the code was written with node and express, and the database followed a relational sql structure.
